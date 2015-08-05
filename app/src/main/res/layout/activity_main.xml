@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/parent">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchText"
+            android:layout_margin="2dp"
+            android:hint="@string/searchHint"
+            android:height="46dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchButton"
+            android:src="@drawable/search" />
+
+        <!--ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/myLocation"
+            android:src="@drawable/location"
+            android:onClick="showMyLocation" /-->
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="532dp"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment">
+        </fragment>
+
+        <!--com.bjiang.map_ex.OnDoubleTap
+            android:id="@+id/mapView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:enabled="true"
+            android:clickable="true"
+            /-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="532dp">
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/polyLineButton"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="3dp"
+                android:src="@drawable/polyline32"
+                android:onClick="createPolyLine" />
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/polygonButton"
+                android:src="@drawable/polygon"
+                android:layout_below="@+id/polyLineButton"
+                android:layout_alignLeft="@+id/polyLineButton"
+                android:layout_alignStart="@+id/polyLineButton"
+                android:layout_marginTop="-3dp"
+                android:onClick="createPolygon"/>
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/clearButton"
+                android:src="@drawable/clear"
+                android:layout_below="@+id/polygonButton"
+                android:layout_alignLeft="@+id/polygonButton"
+                android:layout_alignStart="@+id/polygonButton"
+                android:layout_marginTop="-3dp"
+                android:onClick="clearMarkers" />
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>
